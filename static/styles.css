@@ -67,6 +67,6 @@ input{
     border-bottom-color: var(--p-color);
 }
 
-#prompt{
+.prompt{
     text-align: left;
 }
