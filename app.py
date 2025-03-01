@@ -48,24 +48,13 @@ def start():
 
     try:
         db.session.add(new_user)
-        db.session.commit()
-    except:
-        print("user already exists")
-    # db.session.commit()
-    try:
-        dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
-        for user in dummy_leaderboard.keys():
-            new_user = User(username = user, points = dummy_leaderboard[user], studying = "dummy")
-            db.session.add(new_user)
-            db.session.commit()
-    except:
+    except Exception as e:
+        # TODO: catch only specific exception
+        print(e)
         pass
-
-    # print(User.username)
 
     top_users = User.query.order_by(User.points.desc()).limit(10).all()
     leaderboard_data = [{"username": user.username, "points": user.points} for user in top_users]
-
 
     payload = {
         'leaderboard': leaderboard_data,
@@ -75,10 +64,26 @@ def start():
 
     return jsonify(payload);
 
+@app.route("/api/timerDone", methods=["POST"])
+def timerDone():
+    name = request.json["name"];
+    studying = request.json["studying"];
+
+    leaderboard.add_points(name, 100)
+
 with app.app_context():
     db.create_all()
 
 if __name__=="__main__":
+    try:
+        dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
+        for user in dummy_leaderboard.keys():
+            new_user = User(username = user, points = dummy_leaderboard[user], studying = "dummy")
+            db.session.add(new_user)
+            db.session.commit()
+    except Exception as e:
+        pass
+
     app.run(debug=True)
 
 
