@@ -70,8 +70,7 @@ function timerDone() {
     timerTask = null;
     console.log("Timer done!!!")
     cat1.hidden = false;
-    cat1.style.right = "50px";
-    cat1.style.bottom = "50px";
+    cat1.classList.add("move-across");
 }
 
 function updateLeaderboard(data) {
