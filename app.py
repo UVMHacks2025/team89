@@ -18,6 +18,12 @@ def start():
     print(leaderboard.get_leaderboard())
     return ""
 
+@app.route("/api/start", methods=["POST"])
+def count():
+    print(f"Timer:")
+    timer.countdown()
+    return ""
+
 if __name__=="__main__":
     app.run(debug=True)
 
