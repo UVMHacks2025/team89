@@ -28,6 +28,3 @@ def get_top_ten():
         all.remove(big)
 
     print(leaderboard[top_ten])
-
-
-get_top_ten()
