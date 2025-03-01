@@ -1,6 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
-import time
+import leaderboard
 
 app = Flask(__name__)
 
@@ -8,5 +8,16 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route("/api/start", methods=["POST"])
+def start():
+    name = request.json["name"];
+    studying = request.json["studying"];
+    print(f"[start] USER JOINED {name=} {studying=}")
+    leaderboard.add_user(name)
+    print(leaderboard.get_leaderboard())
+    return ""
+
 if __name__=="__main__":
     app.run(debug=True)
+
+

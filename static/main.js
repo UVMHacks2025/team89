@@ -11,7 +11,8 @@ function onload() {
         };
         fetch("/api/start", {
             method: "POST",
-            body: data,
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
         });
 
     };
