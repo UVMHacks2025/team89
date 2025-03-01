@@ -82,8 +82,15 @@ def timerDone():
     db.session.add(new_user)
     db.session.commit()
 
+    top_users = User.query.order_by(User.points.desc()).limit(10).all()
+    leaderboard_data = [{"username": user.username, "points": user.points} for user in top_users]
 
-    leaderboard.add_points(name, 100)
+    payload = {
+        'leaderboard': leaderboard_data,
+    };
+
+    return jsonify(payload);
+
 
 with app.app_context():
     db.create_all()
