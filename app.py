@@ -20,8 +20,8 @@ def start():
 
 @app.route("/api/start", methods=["POST"])
 def count():
-    print(f"Timer:")
-    timer.countdown()
+    print("Timer: ")
+    timer.get_time()
     return ""
 
 if __name__=="__main__":

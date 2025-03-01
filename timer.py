@@ -8,6 +8,10 @@ def countdown():
         mins, secs = divmod(study_time, 60)
         timer = ('{:02d}:{:02d}', mins, secs)
         print(timer, end='\r')
-        time.sleep(1)
+        #time.sleep(1)
         study_time -= 1
     print("Time's Up!")
+
+def what_time():
+    current = time.localtime()
+    print(current)
