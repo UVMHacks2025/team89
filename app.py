@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 import leaderboard
-import timer
+# import timer
 
 app = Flask(__name__)
 
