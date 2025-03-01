@@ -15,7 +15,8 @@ db = SQLAlchemy(app)
 class User(db.Model):
     username = db.Column(db.String(80), primary_key=True)
     points = db.Column(db.Integer, nullable=False)
-    leaderboard_index = db.Column(db.Integer, nullable=False)
+    studying = db.Column(db.String(80), nullable=False)
+    #leaderboard_index = db.Column(db.Integer, nullable=False)
     def __repr__(self):
         return '<User %r>' % self.username
 
@@ -40,6 +41,14 @@ def start():
     studying = request.json["studying"];
     print(f"[start] USER JOINED {name=} {studying=}")
     leaderboard.add_user(name)
+    points = 0
+    new_user = User(username=name, points=points, studying=studying)
+    try:
+        db.session.add(new_user)
+        db.session.commit()
+    except:
+        return 'there was an issue'
+
     payload = {
         'leaderboard': leaderboard.get_leaderboard(),
     };
