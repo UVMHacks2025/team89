@@ -8,13 +8,16 @@ const taskInput = document.getElementById("task-input");
 let timerLength = 1 * 60 - 55;
 let timerTask;
 
+let username;
+
 function onload() {
 }
 
 startButton.onclick = async () => {
     console.log("Hello, World!");
+    username = nameInput.value;
     const data = {
-        name: nameInput.value,
+        name: username,
         studying: taskInput.value,
     };
     const response = await fetch("/api/start", {
@@ -81,6 +84,14 @@ function timerDone() {
         }, 2000);
     }
 
+    const data = { 
+        name: username,
+    };
+    fetch("/api/timerDone", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+    });
 }
 
 function updateLeaderboard(data) {
