@@ -26,5 +26,3 @@ def get_top_ten():
         big = max(all)
         top_ten.append(big)
         all.remove(big)
-
-    print(leaderboard[top_ten])
