@@ -1,3 +1,39 @@
+:root{
+    --background-color: hsl(220.5, 44.4%, 82.4%);
+    --button-color: hsl(0, 0%, 100%);
+    --text-size: 110%;
+}
+
+@keyframes load{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* @font-face{
+    font-family: "league-spartan";
+    src: url("../fonts/league-spartan.ttf");
+} */
+
+*{
+    /* font-family: "league-spartan", Helvetica, sans-serif; */
+    font-weight: lighter;
+    font-size: small;
+    animation: load cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
 body {
-    background-color: hsl(220.5, 44.4%, 82.4%);
+    background-color: var(--background-color);
+}
+
+button{
+    border-style: dashed;
+    border-width: .05em;
+    border-color: var(--button-color);
+    padding: 1%;
+    margin: 1%;
+    text-align: center;
 }
