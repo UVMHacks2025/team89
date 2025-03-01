@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 import leaderboard
+# import timer
 
 app = Flask(__name__)
 
@@ -15,6 +16,12 @@ def start():
     print(f"[start] USER JOINED {name=} {studying=}")
     leaderboard.add_user(name)
     print(leaderboard.get_leaderboard())
+    return ""
+
+@app.route("/api/start", methods=["POST"])
+def count():
+    print("Timer: ")
+    timer.get_time()
     return ""
 
 if __name__=="__main__":

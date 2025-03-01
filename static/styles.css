@@ -1,13 +1,28 @@
 :root{
     /* COLOR VARIABLES */
     --clear: hsla(0, 0%, 100%, 0);
-    --background-color: hsl(221, 67%, 92%);
+    --background-color: hsl(0, 0%, 100%);
     --button-color: hsla(0, 0%, 100%, 0);
-    --p-color: hsl(15, 11%, 15%);
+    --p-color: hsl(229, 38%, 22%);
     --button-accent: hsla(0, 0%, 100%, 0.5);
     --font-color: hsl(0, 0%, 100%);
     /* TEXT SIZE VARIABLES */
     --default-text-size: 250em;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.prompt{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    padding: 5%;
+    margin: auto;
 }
 
 /* initial load-in animation */
@@ -28,7 +43,7 @@
 /* for everything !! */
 *{
     color: var(--p-color);
-    text-align: center;
+    /* text-align: center; */
     font-family: "vividly", Helvetica, sans-serif;
     font-weight: lighter;
     font-size: xx-large;
@@ -36,6 +51,7 @@
 }
 
 body {
+    align-items: center;
     background-color: var(--background-color);
 }
 
@@ -57,7 +73,7 @@ button{
     border-radius: 10%;
 }
 button:hover{
-    color: var(--button-accent);
+    background-color: var(--button-accent);
 }
 
 input{
@@ -65,8 +81,13 @@ input{
     border-color: var(--clear);
     border-bottom-style: solid;
     border-bottom-color: var(--p-color);
+    border-width: 1%;
+    width: 15%;
 }
 
-.prompt{
+/* 
+form .prompt * {
     text-align: left;
-}
+    display: block;
+} */
+
