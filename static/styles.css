@@ -1,3 +1,66 @@
+:root{
+    --clear: hsla(0, 0%, 100%, 0);
+    --background-color: hsl(221, 67%, 92%);
+    --button-color: hsla(0, 0%, 100%, 0);
+    --p-color: hsl(15, 11%, 15%);
+    --button-accent: hsla(0, 0%, 100%, 0.5);
+    --font-color: hsl(0, 0%, 100%);
+    --text-size: 110%;
+}
+
+/* initial load-in animation */
+@keyframes load{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@font-face{
+    font-family: "vividly";
+    src: url("fonts/vividly/Vividly-Regular.ttf");
+}
+
+/* for everything !! */
+*{
+    color: var(--p-color);
+    text-align: center;
+    font-family: "vividly", Helvetica, sans-serif;
+    /* font-weight: lighter;
+    font-size: small; */
+    animation: load cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
 body {
-    background-color: hsl(220.5, 44.4%, 82.4%);
+    background-color: var(--background-color);
+}
+
+h1{
+    padding: 1%;
+    margin: 1%;
+    size: 50em;
+    text-align: center;
+}
+
+/* button styling */
+button{
+    border-style: dashed;
+    border-width: .05em;
+    border-color: var(--button-color);
+    padding: 1%;
+    margin: 1%;
+    text-align: center;
+    border-radius: 10%;
+}
+button:hover{
+    color: var(--button-accent);
+}
+
+input{
+    border-bottom-style: solid;
+    background-color: var(--clear);
+    border-color: var(--clear);
+    border-bottom: var(--p-color);
 }
