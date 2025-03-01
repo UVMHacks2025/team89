@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, UTC
 import requests
 from sqlalchemy.sql.functions import user
+from sqlalchemy import update
 
 import leaderboard
 import timer
@@ -73,7 +74,14 @@ def start():
 @app.route("/api/timerDone", methods=["POST"])
 def timerDone():
     name = request.json["name"];
-    studying = request.json["studying"];
+
+    user = User.query.filter_by(username=name).first()
+    new_user = User(username=user.username, points=user.points + 100, studying=user.studying)
+
+    db.session.delete(user)
+    db.session.add(new_user)
+    db.session.commit()
+
 
     leaderboard.add_points(name, 100)
 
@@ -81,13 +89,6 @@ with app.app_context():
     db.create_all()
 
 if __name__=="__main__":
-    # dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
-    # for leaderboard_user in dummy_leaderboard.keys():
-    #     if (User.query.filter_by(username=leaderboard_user).first()):
-    #         new_user = User(username = leaderboard_user, points = dummy_leaderboard[leaderboard_user], studying = "dummy")
-    #         db.session.add(new_user)
-    #         db.session.commit()
-
     app.run(debug=True)
 
 
