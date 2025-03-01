@@ -46,12 +46,18 @@ def start():
     points = 0
     new_user = User(username=name, points=points, studying=studying)
 
-    try:
+    if not(User.query.filter_by(username=name).first()):
         db.session.add(new_user)
-    except Exception as e:
-        # TODO: catch only specific exception
-        print(e)
-        pass
+        db.session.commit()
+    else:
+        print("EXISTING USER SELECTED")
+
+    dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
+    for leaderboard_user in dummy_leaderboard.keys():
+        if not(User.query.filter_by(username=leaderboard_user).first()):
+            new_user = User(username = leaderboard_user, points = dummy_leaderboard[leaderboard_user], studying = "dummy")
+            db.session.add(new_user)
+            db.session.commit()
 
     top_users = User.query.order_by(User.points.desc()).limit(10).all()
     leaderboard_data = [{"username": user.username, "points": user.points} for user in top_users]
@@ -75,14 +81,12 @@ with app.app_context():
     db.create_all()
 
 if __name__=="__main__":
-    try:
-        dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
-        for user in dummy_leaderboard.keys():
-            new_user = User(username = user, points = dummy_leaderboard[user], studying = "dummy")
-            db.session.add(new_user)
-            db.session.commit()
-    except Exception as e:
-        pass
+    # dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
+    # for leaderboard_user in dummy_leaderboard.keys():
+    #     if (User.query.filter_by(username=leaderboard_user).first()):
+    #         new_user = User(username = leaderboard_user, points = dummy_leaderboard[leaderboard_user], studying = "dummy")
+    #         db.session.add(new_user)
+    #         db.session.commit()
 
     app.run(debug=True)
 
