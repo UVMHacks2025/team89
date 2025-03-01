@@ -57,7 +57,7 @@ function showMainScreen(data) {
 
 const timerStart = document.getElementById("timer-start-button");
 const timerContent = document.getElementById("timer-value");
-var meow = document.getElementById("meow");
+//var meow = document.getElementById("meow");
 function updateTimer(seconds) {
     console.log(seconds);
     let m = String(Math.floor(seconds / 60)).padStart(2, "0");
@@ -74,7 +74,7 @@ function timerDone() {
     clearInterval(timerTask);
     timerTask = null;
     console.log("Timer done!!!")
-    meow.play();
+    //meow.play();
     for (const cat of cats) {
         cat.hidden = false;
         cat.classList.add("move-across");
