@@ -64,17 +64,20 @@ function updateTimer(seconds) {
 const cat1 = document.getElementById("cat1");
 const cat2 = document.getElementById("cat2");
 const cat3 = document.getElementById("cat3");
+const cats = [ cat1, cat2, cat3 ];
 
 function timerDone() {
     clearInterval(timerTask);
     timerTask = null;
     console.log("Timer done!!!")
-    cat1.hidden = false;
-    cat1.classList.add("move-across");
-    setTimeout(() => {
-        cat1.classList.remove("move-across");
-        cat1.hidden = true;
-    }, 5000);
+    for (const cat of cats) {
+        cat.hidden = false;
+        cat.classList.add("move-across");
+        setTimeout(() => {
+            cat.classList.remove("move-across");
+            cat.hidden = true;
+        }, 5000);
+    }
 }
 
 function updateLeaderboard(data) {
