@@ -1,11 +1,13 @@
 :root{
+    /* COLOR VARIABLES */
     --clear: hsla(0, 0%, 100%, 0);
     --background-color: hsl(221, 67%, 92%);
     --button-color: hsla(0, 0%, 100%, 0);
     --p-color: hsl(15, 11%, 15%);
     --button-accent: hsla(0, 0%, 100%, 0.5);
     --font-color: hsl(0, 0%, 100%);
-    --text-size: 110%;
+    /* TEXT SIZE VARIABLES */
+    --default-text-size: 250em;
 }
 
 /* initial load-in animation */
@@ -28,8 +30,8 @@
     color: var(--p-color);
     text-align: center;
     font-family: "vividly", Helvetica, sans-serif;
-    /* font-weight: lighter;
-    font-size: small; */
+    font-weight: lighter;
+    font-size: xx-large;
     animation: load cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
 }
 
@@ -40,7 +42,7 @@ body {
 h1{
     padding: 1%;
     margin: 1%;
-    size: 50em;
+    size: 250em;
     text-align: center;
 }
 
@@ -63,4 +65,8 @@ input{
     border-color: var(--clear);
     border-bottom-style: solid;
     border-bottom-color: var(--p-color);
+}
+
+#prompt{
+    text-align: left;
 }
