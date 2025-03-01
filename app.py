@@ -75,6 +75,13 @@ def start():
 
     return jsonify(payload);
 
+@app.route("/api/timerDone", methods=["POST"])
+def timerDone():
+    name = request.json["name"];
+    studying = request.json["studying"];
+
+    leaderboard.add_points(name, 100)
+
 with app.app_context():
     db.create_all()
 
