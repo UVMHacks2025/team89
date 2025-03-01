@@ -71,6 +71,10 @@ function timerDone() {
     console.log("Timer done!!!")
     cat1.hidden = false;
     cat1.classList.add("move-across");
+    setTimeout(() => {
+        cat1.classList.remove("move-across");
+        cat1.hidden = true;
+    }, 5000);
 }
 
 function updateLeaderboard(data) {

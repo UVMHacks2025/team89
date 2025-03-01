@@ -150,6 +150,6 @@ input{
 }
 
 @keyframes fly {
-    from {top: 0px;}
-    to {top: 200px;}
+    from {bottom: 0px; right: 0px; }
+    to {bottom: 100%; right: 100%; }
   }
