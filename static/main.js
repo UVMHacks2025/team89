@@ -32,7 +32,7 @@ function showMainScreen(data) {
     const timerContent = document.getElementById("timer-value");
     timerStart.onclick = () => {
         let start_time = Date.now();
-        let time_length = 25 * 60;
+        let time_length = 1 * 60;
 
         setInterval(() => {
             const ellapsed = (Date.now() - start_time) / 1000.0;

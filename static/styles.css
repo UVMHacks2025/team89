@@ -17,6 +17,11 @@ body{
     justify-content: center;
 }
 
+img{
+    width: 10%;
+    display: inline;
+}
+
 .prompt{
     display: flex;
     flex-direction: column;
