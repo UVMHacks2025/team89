@@ -48,6 +48,7 @@ def start():
 
     try:
         db.session.add(new_user)
+        db.session.commit()
     except Exception as e:
         # TODO: catch only specific exception
         print(e)
