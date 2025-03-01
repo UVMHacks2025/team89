@@ -43,11 +43,9 @@ def start():
     leaderboard.add_user(name)
     points = 0
     new_user = User(username=name, points=points, studying=studying)
-    try:
-        db.session.add(new_user)
-        db.session.commit()
-    except:
-        return 'there was an issue'
+
+    db.session.add(new_user)
+    db.session.commit()
 
     payload = {
         'leaderboard': leaderboard.get_top_ten(),
