@@ -59,8 +59,8 @@ button:hover{
 }
 
 input{
-    border-bottom-style: solid;
     background-color: var(--clear);
     border-color: var(--clear);
-    border-bottom: var(--p-color);
+    border-bottom-style: solid;
+    border-bottom-color: var(--p-color);
 }
