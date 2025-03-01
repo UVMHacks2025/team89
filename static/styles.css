@@ -94,7 +94,6 @@ input{
     outline: 0;
 
     max-width: 60%;
-    height: 15%;
 }
 
 /* input::selection {
