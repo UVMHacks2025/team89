@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import requests
 import leaderboard
-# import timer
+import timer
 
 app = Flask(__name__)
 
@@ -15,14 +15,13 @@ def start():
     studying = request.json["studying"];
     print(f"[start] USER JOINED {name=} {studying=}")
     leaderboard.add_user(name)
-    print(leaderboard.get_leaderboard())
-    return ""
+    payload = {
+        'leaderboard': leaderboard.get_leaderboard(),
+    };
 
-@app.route("/api/start", methods=["POST"])
-def count():
-    print("Timer: ")
-    timer.get_time()
-    return ""
+    print(payload)
+
+    return jsonify(payload);
 
 if __name__=="__main__":
     app.run(debug=True)

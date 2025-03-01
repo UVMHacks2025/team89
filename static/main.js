@@ -23,7 +23,7 @@ startButton.onclick = async () => {
     showMainScreen(result);
 };
 
-function showMainScreen() {
+function showMainScreen(data) {
     startScreen.hidden = true;
     const leaderboard = document.getElementById("leaderboard");
     let table = `
@@ -37,6 +37,14 @@ function showMainScreen() {
         <tbody>
         </tbody>
     `;
+    for (const [name, points] of Object.entries(data.leaderboard)) {
+        table += `
+        <tr>
+            <td>${name}</td>
+            <td>${points}</td>
+        </tr>
+        `
+    }
     
     table += `
         </tbody>
