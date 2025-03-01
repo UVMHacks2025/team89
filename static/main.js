@@ -95,11 +95,11 @@ function updateLeaderboard(data) {
         <tbody>
         </tbody>
     `;
-    for (const [name, points] of Object.entries(data)) {
+    for (const item of data) {
         table += `
         <tr>
-            <td>${name}</td>
-            <td>${points}</td>
+            <td>${item.username}</td>
+            <td>${item.points}</td>
         </tr>
         `
     }
