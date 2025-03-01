@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import datetime, UTC
 import requests
 import leaderboard
 import timer
@@ -24,7 +24,7 @@ class Todo(db.Model):
     task_name = db.Column(db.String(80), nullable=False)
     task_description = db.Column(db.String(80))
     task_priority = db.Column(db.Integer, nullable=False)
-    start_time = db.Column(db.DateTime, default=datetime.now(datetime.UTC))
+    start_time = db.Column(db.DateTime, default=datetime.now(UTC))
     def __repr__(self):
         return '<Task %r>' % self.task_name
 

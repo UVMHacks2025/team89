@@ -16,7 +16,7 @@ def add_points(user, new_points):
     new_points += old_points
     leaderboard[user] = new_points
 
-def get_top_ten():
-    top_ten = []
-    for user in leaderboard:
-        while top_ten.
+# def get_top_ten():
+#     top_ten = []
+#     for user in leaderboard:
+#         while top_ten.
