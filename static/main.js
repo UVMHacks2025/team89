@@ -61,10 +61,23 @@ function updateTimer(seconds) {
     timerContent.innerText = `${m}:${s}`;
 }
 
+const cat1 = document.getElementById("cat1");
+const cat2 = document.getElementById("cat2");
+const cat3 = document.getElementById("cat3");
+const cats = [ cat1, cat2, cat3 ];
+
 function timerDone() {
     clearInterval(timerTask);
     timerTask = null;
     console.log("Timer done!!!")
+    for (const cat of cats) {
+        cat.hidden = false;
+        cat.classList.add("move-across");
+        setTimeout(() => {
+            cat.classList.remove("move-across");
+            cat.hidden = true;
+        }, 5000);
+    }
 }
 
 function updateLeaderboard(data) {

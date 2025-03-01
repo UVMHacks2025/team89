@@ -17,10 +17,10 @@ body{
     justify-content: center;
 }
 
-img{
+/* img{
     width: 10%;
     display: inline;
-}
+} */
 
 .prompt{
     display: flex;
@@ -139,3 +139,17 @@ input{
 [hidden]{
     display:none !important;
 }
+
+.cat{
+    width: 20%;
+    position: fixed;
+}
+
+.move-across{
+    animation: fly 5s;
+}
+
+@keyframes fly {
+    from {bottom: 0px; right: 0px; }
+    to {bottom: 100%; right: 100%; }
+  }

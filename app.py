@@ -46,8 +46,22 @@ def start():
     points = 0
     new_user = User(username=name, points=points, studying=studying)
 
-    db.session.add(new_user)
-    db.session.commit()
+    try:
+        db.session.add(new_user)
+    except:
+        pass
+    # db.session.commit()
+    try:
+        dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
+        for user in dummy_leaderboard.keys():
+            new_user = User(username = user, points = dummy_leaderboard[user], studying = "dummy")
+            db.session.add(new_user)
+            # db.session.commit()
+        db.session.commit()
+    except:
+        pass
+
+    # print(User.username)
 
     top_users = User.query.order_by(User.points.desc()).limit(10).all()
     leaderboard_data = [{"username": user.username, "points": user.points} for user in top_users]
