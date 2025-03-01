@@ -4,7 +4,7 @@
     --background-color: hsl(0, 0%, 100%);
     --button-color: hsla(0, 0%, 100%, 0);
     --p-color: hsl(228, 21%, 32%);
-    --button-accent: hsla(0, 0%, 100%, 0.5);
+    --button-accent: hsla(233, 11%, 47%, 0.5)
     --font-color: hsl(0, 0%, 100%);
     /* TEXT SIZE VARIABLES */
     --default-text-size: 250em;
@@ -12,6 +12,7 @@
 
 body{
     display: flex;
+    align-items: stretch;
     flex-direction: column;
     justify-content: center;
 }
@@ -51,6 +52,8 @@ body{
 }
 
 body {
+    margin: auto;
+    padding: 12%;
     align-items: center;
     background-color: var(--background-color);
 }
@@ -58,7 +61,7 @@ body {
 h1{
     padding: 1%;
     margin: 1%;
-    size: 250em;
+    font-size: 200%;
     text-align: center;
 }
 
@@ -98,9 +101,13 @@ input{
     background-color:transparent;
 } */
 
-/* 
-form .prompt * {
-    text-align: left;
-    display: block;
+
+/* .prompt {
+    margin: auto;
+    padding: 10%;
 } */
 
+#start-screen, #leaderboard {
+    margin: auto;
+    padding-bottom: 20%;
+}
