@@ -4,7 +4,7 @@
     --background-color: hsl(0, 0%, 100%);
     --button-color: hsla(0, 0%, 100%, 0);
     --p-color: hsl(228, 21%, 32%);
-    --button-accent: hsla(225, 19%, 92%, 0.518);
+    --button-accent: hsla(220, 13%, 86%, 0.658);
     --font-color: hsl(0, 0%, 100%);
     /* TEXT SIZE VARIABLES */
     --default-text-size: 250em;
@@ -75,7 +75,7 @@ h2{
 /* button styling */
 button{
     display: block;
-    border-style: dashed;
+    border-style: solid;
     border-width: .05em;
     border-color: var(--button-color);
     padding: 3%;
@@ -90,6 +90,7 @@ button:hover{
 
 input{
     background-color: var(--clear);
+    border-radius: 5%;
     border-color: var(--clear);
     border-bottom-style: solid;
     border-bottom-color: var(--p-color);
@@ -97,9 +98,9 @@ input{
     padding: 0%;
     width: 20%;
     display: inline-block;
-    /* grow as you type */
+    /* grow as you type (?)*/
     overflow-x:auto;
-    /* make that ugly selection box go away*/
+    /* make that selection box go away*/
     outline: 0;
 
     max-width: 60%;
