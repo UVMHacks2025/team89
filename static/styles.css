@@ -3,7 +3,7 @@
     --clear: hsla(0, 0%, 100%, 0);
     --background-color: hsl(0, 0%, 100%);
     --button-color: hsla(0, 0%, 100%, 0);
-    --p-color: hsl(229, 38%, 22%);
+    --p-color: hsl(228, 21%, 32%);
     --button-accent: hsla(0, 0%, 100%, 0.5);
     --font-color: hsl(0, 0%, 100%);
     /* TEXT SIZE VARIABLES */
@@ -82,8 +82,21 @@ input{
     border-bottom-style: solid;
     border-bottom-color: var(--p-color);
     border-width: 1%;
-    width: 15%;
+    padding: 0%;
+    width: 20%;
+    display: inline-block;
+    /* grow as you type */
+    overflow-x:auto;
+    /* make that ugly selection box go away*/
+    outline: 0;
+
+    max-width: 60%;
+    height: 15%;
 }
+
+/* input::selection {
+    background-color:transparent;
+} */
 
 /* 
 form .prompt * {
