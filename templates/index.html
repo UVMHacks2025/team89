@@ -7,18 +7,31 @@
     <script src="../static/main.js" defer></script>
 <body>
   <h1>Welcome!</h1>
-  <form>
-    <section class="prompt">
-      <section>
-        <label for="name">Enter your name:</label>
-        <input type="text" name="name" id="name-input"></input>
+  <div id="start-screen">
+    <form>
+      <section class="prompt">
+        <section>
+          <label for="name">Enter your name:</label>
+          <input type="text" name="name" id="name-input"></input>
+        </section>
+        <section>
+          <label for="task">What do you most need to work on?</label>
+          <input type="text" name="task" id="task-input"></input>
+        </section>
       </section>
-      <section>
-        <label for="task">What do you most need to work on?</label>
-        <input type="text" name="task" id="task-input"></input>
-      </section>
-    </section>
-    <button type="button" id="start">Start studying!</button>
-  </form>
+      <button type="button" id="start">Start studying!</button>
+    </form>
+  </div>
+
+  <div id="main-screen">
+    <!-- TODO: timer widget here! -->
+
+
+
+    <!-- end timer widget -->
+
+    <!-- TODO: leaderboard -->
+    <!-- end leaderboard timer widget -->
+  </div>
 </body>
 </html>
