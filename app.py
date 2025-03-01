@@ -45,7 +45,16 @@ def start():
     new_user = User(username=name, points=points, studying=studying)
 
     db.session.add(new_user)
+    # db.session.commit()
+
+    dummy_leaderboard = {'Norah22': 450, 'jordaniscool': 126, 'maya_studies': 788, 'leahlockedin': 439}
+    for user in dummy_leaderboard.keys():
+        new_user = User(username = user, points = dummy_leaderboard[user], studying = "dummy")
+        db.session.add(new_user)
+        # db.session.commit()
     db.session.commit()
+
+    # print(User.username)
 
     payload = {
         'leaderboard': leaderboard.get_top_ten(),
