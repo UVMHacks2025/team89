@@ -41,7 +41,7 @@ def start():
     print(f"[start] USER JOINED {name=} {studying=}")
     leaderboard.add_user(name)
     payload = {
-        'leaderboard': leaderboard.get_leaderboard(),
+        'leaderboard': leaderboard.get_top_ten(),
     };
 
     print(payload)
