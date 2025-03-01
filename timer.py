@@ -1,5 +1,6 @@
 # timer file to be displayed on the flask app
 import time
+from itertools import count
 
 # 20 min study time
 MINS = 20
@@ -15,3 +16,4 @@ def countdown(x):
         x -= 1
     print("Time's Up!")
 
+countdown(study_time)
