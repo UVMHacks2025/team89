@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, UTC
 import requests
+from sqlalchemy.sql.functions import user
+
 import leaderboard
 import timer
 
@@ -61,8 +63,12 @@ def start():
 
     # print(User.username)
 
+    top_users = User.query.order_by(User.points.desc()).limit(10).all()
+    leaderboard_data = [{"username": user.username, "points": user.points} for user in top_users]
+
+
     payload = {
-        'leaderboard': leaderboard.get_top_ten(),
+        'leaderboard': leaderboard_data,
     };
 
     print(payload)
