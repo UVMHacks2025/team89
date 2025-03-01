@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import requests
@@ -38,8 +38,13 @@ def start():
     studying = request.json["studying"];
     print(f"[start] USER JOINED {name=} {studying=}")
     leaderboard.add_user(name)
-    print(leaderboard.get_leaderboard())
-    return ""
+    payload = {
+        'leaderboard': leaderboard.get_leaderboard(),
+    };
+
+    print(payload)
+
+    return jsonify(payload);
 
 if __name__=="__main__":
     app.run(debug=True)
