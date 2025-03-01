@@ -26,12 +26,3 @@ def get_top_ten():
         big = max(all)
         top_ten.append(big)
         all.remove(big)
-
-<<<<<<< HEAD
-    # print(leaderboard[top_ten])
-
-
-get_top_ten()
-=======
-    print(leaderboard[top_ten])
->>>>>>> 98db1fc541e7eaaec20e43dc9602f5652afc4848
