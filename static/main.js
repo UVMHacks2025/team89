@@ -61,10 +61,17 @@ function updateTimer(seconds) {
     timerContent.innerText = `${m}:${s}`;
 }
 
+const cat1 = document.getElementById("cat1");
+const cat2 = document.getElementById("cat2");
+const cat3 = document.getElementById("cat3");
+
 function timerDone() {
     clearInterval(timerTask);
     timerTask = null;
     console.log("Timer done!!!")
+    cat1.hidden = false;
+    cat1.style.right = "50px";
+    cat1.style.bottom = "50px";
 }
 
 function updateLeaderboard(data) {
