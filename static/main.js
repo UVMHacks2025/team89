@@ -76,7 +76,7 @@ function timerDone() {
         setTimeout(() => {
             cat.classList.remove("move-across");
             cat.hidden = true;
-        }, 5000);
+        }, 2000);
     }
 }
 
