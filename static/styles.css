@@ -17,10 +17,10 @@ body{
     justify-content: center;
 }
 
-img{
+/* img{
     width: 10%;
     display: inline;
-}
+} */
 
 .prompt{
     display: flex;
@@ -138,4 +138,9 @@ input{
 
 [hidden]{
     display:none !important;
+}
+
+.cat{
+    width: 20%;
+    position: fixed;
 }
