@@ -27,12 +27,25 @@ function showMainScreen(data) {
     startScreen.hidden = true;
     mainScreen.hidden = false;
     updateLeaderboard(data.leaderboard);
+
+    const timerStart = document.getElementById("timer-start-button");
+    const timerContent = document.getElementById("timer-value");
+    let start_time = Date.now();
+    let time_length = 25 * 60;
+    timerStart.onclick = () => {
+        setInterval(() => {
+            const ellapsed = (Date.now() - start_time) / 1000.0;
+            let current_seconds = Math.ceil(time_length - ellapsed);
+            let m = String(Math.floor(current_seconds / 60)).padStart(2, "0");
+            let s = String(current_seconds % 60).padStart(2, "0");
+            timerContent.innerText = `${m}:${s}`;
+        }, 100);
+    };
 }
 
 function updateLeaderboard(data) {
     const leaderboard = document.getElementById("leaderboard");
-    let table = `
-    <table>
+    let table = `<table>
         <thead>
             <tr>
                 <th>User</th>
