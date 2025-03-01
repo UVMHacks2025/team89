@@ -17,12 +17,8 @@ def add_points(user, new_points):
     leaderboard[user] = new_points
 
 def get_top_ten():
-    all = []
-    top_ten = []
-    for key in leaderboard:
-        all.append(leaderboard[key])
+    N = 10
+    top_ten = dict(sorted(leaderboard.items(), key=lambda item: item[1], reverse=True))
+    return top_ten
 
-    while all and len(top_ten) < 10:
-        big = max(all)
-        top_ten.append(big)
-        all.remove(big)
+

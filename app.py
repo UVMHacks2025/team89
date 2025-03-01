@@ -25,6 +25,8 @@ class Todo(db.Model):
     task_description = db.Column(db.String(80))
     task_priority = db.Column(db.Integer, nullable=False)
     start_time = db.Column(db.DateTime, default=datetime.now(UTC))
+    finish_time = db.Column(db.DateTime, default=datetime.now(UTC))
+    username = db.Column(db.String(80), db.ForeignKey('user.username'), nullable=False)
     def __repr__(self):
         return '<Task %r>' % self.task_name
 
@@ -39,12 +41,15 @@ def start():
     print(f"[start] USER JOINED {name=} {studying=}")
     leaderboard.add_user(name)
     payload = {
-        'leaderboard': leaderboard.get_leaderboard(),
+        'leaderboard': leaderboard.get_top_ten(),
     };
 
     print(payload)
 
     return jsonify(payload);
+
+with app.app_context():
+    db.create_all()
 
 if __name__=="__main__":
     app.run(debug=True)
