@@ -4,7 +4,7 @@
     --background-color: hsl(0, 0%, 100%);
     --button-color: hsla(0, 0%, 100%, 0);
     --p-color: hsl(228, 21%, 32%);
-    --button-accent: hsla(233, 11%, 47%, 0.5)
+    --button-accent: hsla(220, 13%, 86%, 0.658);
     --font-color: hsl(0, 0%, 100%);
     /* TEXT SIZE VARIABLES */
     --default-text-size: 250em;
@@ -65,22 +65,32 @@ h1{
     text-align: center;
 }
 
-/* button styling */
-button{
-    border-style: dashed;
-    border-width: .05em;
-    border-color: var(--button-color);
+h2{
     padding: 1%;
     margin: 1%;
+    font-size: 150%;
+    text-align: center;
+}
+
+/* button styling */
+button{
+    display: block;
+    border-style: solid;
+    border-width: .05em;
+    border-color: var(--button-color);
+    padding: 3%;
+    margin: auto;
     text-align: center;
     border-radius: 10%;
 }
+
 button:hover{
     background-color: var(--button-accent);
 }
 
 input{
     background-color: var(--clear);
+    border-radius: 5%;
     border-color: var(--clear);
     border-bottom-style: solid;
     border-bottom-color: var(--p-color);
@@ -88,25 +98,39 @@ input{
     padding: 0%;
     width: 20%;
     display: inline-block;
-    /* grow as you type */
+    /* grow as you type (?)*/
     overflow-x:auto;
-    /* make that ugly selection box go away*/
+    /* make that selection box go away*/
     outline: 0;
 
     max-width: 60%;
 }
 
-/* input::selection {
-    background-color:transparent;
-} */
-
-
-/* .prompt {
-    margin: auto;
-    padding: 10%;
-} */
-
-#start-screen, #leaderboard {
+#start-screen {
     margin: auto;
     padding-bottom: 20%;
+}
+
+#main-screen {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding-bottom: 10%;
+}
+
+#leaderboard{
+    margin: auto;
+    padding: 10%;
+    text-align: left;
+}
+
+#timer-value{
+    margin: auto;
+    padding: 10%;
+}
+
+[hidden]{
+    display:none !important;
 }

@@ -50,7 +50,7 @@ def start():
         return 'there was an issue'
 
     payload = {
-        'leaderboard': leaderboard.get_leaderboard(),
+        'leaderboard': leaderboard.get_top_ten(),
     };
 
     print(payload)

@@ -4,6 +4,10 @@ const startButton = document.getElementById("start");
 const nameInput = document.getElementById("name-input");
 const taskInput = document.getElementById("task-input");
 
+// How long timer is in seconds
+let timerLength = 1 * 60 - 55;
+let timerTask;
+
 function onload() {
 }
 
@@ -27,12 +31,45 @@ function showMainScreen(data) {
     startScreen.hidden = true;
     mainScreen.hidden = false;
     updateLeaderboard(data.leaderboard);
+
+    updateTimer(timerLength);
+    timerStart.onclick = () => {
+        let start_time = Date.now();
+
+        if (timerTask) {
+            clearInterval(timerTask);
+            timerTask = null;
+        }
+        timerTask = setInterval(() => {
+            const elapsed = (Date.now() - start_time) / 1000.0;
+            let currentSeconds = Math.floor(timerLength - elapsed);
+            if (currentSeconds <= 0) {
+                currentSeconds = 0;
+                timerDone();
+            }
+            updateTimer(currentSeconds);
+        }, 100);
+    };
+}
+
+const timerStart = document.getElementById("timer-start-button");
+const timerContent = document.getElementById("timer-value");
+function updateTimer(seconds) {
+    console.log(seconds);
+    let m = String(Math.floor(seconds / 60)).padStart(2, "0");
+    let s = String(seconds % 60).padStart(2, "0");
+    timerContent.innerText = `${m}:${s}`;
+}
+
+function timerDone() {
+    clearInterval(timerTask);
+    timerTask = null;
+    console.log("Timer done!!!")
 }
 
 function updateLeaderboard(data) {
     const leaderboard = document.getElementById("leaderboard");
-    let table = `
-    <table>
+    let table = `<table>
         <thead>
             <tr>
                 <th>User</th>
